@@ -66,7 +66,14 @@ since: 2016
 avatar: https://en.gravatar.com/userimage/108495717/e5d9e2c177df642cc4fe605a4a491026.jpg
 # Social links
 social:
-  GitHub: https://github.com/aegis-fed/aegisblog.git
+  GitHub: https://github.com/aegis-fed
+
+# Blog rolls 友情链接
+links_title: Links
+links_layout: inline
+links:
+  Candy's Blog: http://blog.suzper.com/
+  南京擎盾: http://www.yu-qing.com/
 
 search:
   path: search.xml
