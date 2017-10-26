@@ -101,7 +101,7 @@
 <link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="aegis" />
+  <meta name="keywords" content="浏览器,js," />
 
 
 
@@ -119,12 +119,16 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="Aegis前端团队">
-<meta property="og:url" content="http://aegis.suzper.com/tags/vue/index.html">
+<meta name="description" content="浏览器的事件循环12345678910111213141516171819const setTimeout1 = setTimeout(function () &amp;#123;  console.log(&apos;------1-------&apos;);&amp;#125;, 0);const setTimeout2 = setTimeout(function () &amp;#123;  Promise.resolve(func">
+<meta property="og:type" content="article">
+<meta property="og:title" content="microtask和macrotask">
+<meta property="og:url" content="http://aegis.suzper.com/2017/10/23/microtask和macrotask/index.html">
 <meta property="og:site_name" content="Aegis前端团队">
+<meta property="og:description" content="浏览器的事件循环12345678910111213141516171819const setTimeout1 = setTimeout(function () &amp;#123;  console.log(&apos;------1-------&apos;);&amp;#125;, 0);const setTimeout2 = setTimeout(function () &amp;#123;  Promise.resolve(func">
+<meta property="og:updated_time" content="2017-10-23T01:50:26.705Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Aegis前端团队">
+<meta name="twitter:title" content="microtask和macrotask">
+<meta name="twitter:description" content="浏览器的事件循环12345678910111213141516171819const setTimeout1 = setTimeout(function () &amp;#123;  console.log(&apos;------1-------&apos;);&amp;#125;, 0);const setTimeout2 = setTimeout(function () &amp;#123;  Promise.resolve(func">
 
 
 
@@ -145,10 +149,10 @@
 
 
 
-  <link rel="canonical" href="http://aegis.suzper.com/tags/vue/"/>
+  <link rel="canonical" href="http://aegis.suzper.com/2017/10/23/microtask和macrotask/"/>
 
 
-  <title> 标签: vue | Aegis前端团队 </title>
+  <title> microtask和macrotask | Aegis前端团队 </title>
 </head>
 
 <body itemscope itemtype="//schema.org/WebPage" lang="zh-Hans">
@@ -169,7 +173,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left  ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="//schema.org/WPHeader">
@@ -290,46 +294,213 @@
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-collapse">
-    <div class="collection-title">
-      <h2 >
-        vue
-        <small>标签</small>
-      </h2>
-    </div>
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
 
     
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                microtask和macrotask
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-10-23T09:17:37+08:00" content="2017-10-23">
+              2017-10-23
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/js/" itemprop="url" rel="index">
+                    <span itemprop="name">js</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
       
 
-  <article class="post post-type-normal" itemscope itemtype="//schema.org/Article">
-    <header class="post-header">
+      
+        <h2 id="浏览器的事件循环"><a href="#浏览器的事件循环" class="headerlink" title="浏览器的事件循环"></a>浏览器的事件循环</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> setTimeout1 = setTimeout(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">'------1-------'</span>);</div><div class="line">&#125;, <span class="number">0</span>);</div><div class="line"><span class="keyword">const</span> setTimeout2 = setTimeout(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="built_in">Promise</span>.resolve(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'---------2-------'</span>);</div><div class="line">  &#125;);</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">'------3-------'</span>);</div><div class="line">&#125;, <span class="number">0</span>);</div><div class="line"><span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve</span>) </span>&#123;</div><div class="line">  <span class="built_in">console</span>.time(<span class="string">"Promise start"</span>);</div><div class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; <span class="number">100000</span>; i++) &#123;</div><div class="line">    (i === <span class="number">10000</span> - <span class="number">1</span>) &amp;&amp; resolve();</div><div class="line">  &#125;</div><div class="line">  <span class="built_in">console</span>.time(<span class="string">"Promise end"</span>);</div><div class="line">&#125;).then(<span class="function"><span class="keyword">function</span> (<span class="params">res</span>) </span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">'---------4---------'</span>);</div><div class="line">&#125;);</div><div class="line"><span class="built_in">console</span>.log(<span class="string">'---------5---------'</span>);</div></pre></td></tr></table></figure>
+<p>在浏览器中执行以上代码，输出顺序为：</p>
+<a id="more"></a>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">promise时间计时</div><div class="line">---5---</div><div class="line">---4---</div><div class="line">---1---</div><div class="line">---3---</div><div class="line">---2---</div></pre></td></tr></table></figure>
+<p>废话不多说，由于浏览器的任务队列不止一个，包括microtasks(微任务)和macrotasks(宏任务)。</p>
+<p>microtasks有：</p>
+<ul>
+<li>process.nextTick</li>
+<li>promise</li>
+<li>Object.observe</li>
+<li>MutationObserver</li>
+</ul>
+<p>macrotasks有：</p>
+<ul>
+<li>setTimeout</li>
+<li>setInterval</li>
+<li>setImmediate</li>
+<li>I/O</li>
+<li>UI渲染</li>
+</ul>
+<p>浏览器执行同步和异步任务的整个流程可以浓缩成一句话：</p>
+<blockquote>
+<p>整个的js代码macrotask先执行，同步代码执行完后有microtask执行microtask，没有microtask执行下一个macrotask，如此往复循环至结束</p>
+</blockquote>
+<p>下面的分析都可以带着这句话进行思考。</p>
+<blockquote>
+<p>step1：执行脚本，把这段脚本压入stacks，此时</p>
+</blockquote>
+<p>stacks: [script]<br>macrotasks: []<br>microtasks: []</p>
+<blockquote>
+<p>step2：遇到setTimeout1，setTimeout可当作一个task，所以此时</p>
+</blockquote>
+<p>stacks: [script]<br>macrotasks: [setTimeout1, setTimeout2]<br>microtasks: []</p>
+<blockquote>
+<p>step3：继续往下执行，new Promise，按同步流程往下走，在i = 99999的时候，resolve()发生，把回调成功的代码段压入microtask queue，<br>输出new Promise内的执行时间</p>
+</blockquote>
+<p>stacks: [script]<br>macrotasks: [setTimeout1, setTimeout2]<br>microtasks: [console.log(‘———4———‘)]</p>
+<blockquote>
+<p>step4：继续往下执行就是console.log(‘—5—‘)，此时stacks队列里头的任务结束</p>
+</blockquote>
+<p>stacks: [],<br>macrotasks: [setTimeout1, setTimeout2]<br>microtasks: [console.log(‘———4———‘)]</p>
+<blockquote>
+<p>step5：此时stacks里面为空，推出microtasks里的剩余任务，打印4</p>
+</blockquote>
+<p>stacks: [console.log(‘———4———‘)]<br>macrotasks: [setTimeout1, setTimeout2]<br>microtasks: []</p>
+<blockquote>
+<p>step6：此时microtasks为空，推出macrotasks里的剩余任务，打印setTimeout1里面的1</p>
+</blockquote>
+<p>stacks: [console.log(‘——1——-‘)]<br>macrotasks: [setTimeout2]<br>microtasks: []</p>
+<blockquote>
+<p>step7：继续推出macrotasks里的剩余任务，同时遇到promise,推入到microtasks，打印setTimeout2里面的3</p>
+</blockquote>
+<p>stacks: [console.log(‘——3——-‘)]<br>macrotasks: []<br>microtasks: [console.log(‘———2——-‘)]</p>
+<blockquote>
+<p>step8：此时macrotasks里没有任务了，就开始执行microtasks里面的任务，打印2</p>
+</blockquote>
+<p>stacks: [console.log(‘———2——-‘)]<br>macrotasks: []<br>microtasks: []</p>
+<blockquote>
+<p>step9：此时microtasks里没有任务了，就开始执行macrotasks里面的任务，macrotasks也没有任务了，执行就结束了。</p>
+</blockquote>
+<p>stacks: []<br>macrotasks: []<br>microtasks: []</p>
 
-      <h1 class="post-title">
+      
+    </div>
+<div>
+  
+    <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+  
+</div>
+<div>
+      
         
-            <a class="post-title-link" href="/2017/10/13/发布自己的vue组件库/" itemprop="url">
-              
-                <span itemprop="name">发布自己的vue组件库</span>
-              
-            </a>
+      
+</div>
+    <div>
+      
         
-      </h1>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-10-13T12:56:12+08:00"
-              content="2017-10-13" >
-          10-13
-        </time>
-      </div>
+      
+    </div>
 
-    </header>
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/浏览器/" rel="tag"><i class="fa fa-tag"></i>浏览器</a>
+          
+            <a href="/tags/js/" rel="tag"><i class="fa fa-tag"></i>js</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/10/13/发布自己的vue组件库/" rel="next" title="发布自己的vue组件库">
+                <i class="fa fa-chevron-left"></i> 发布自己的vue组件库
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/10/26/vscode/" rel="prev" title="vscode insiders 笔记">
+                vscode insiders 笔记 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </article>
 
 
-    
-  </div>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -337,6 +508,10 @@
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -356,8 +531,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="//schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="https://en.gravatar.com/userimage/108495717/e5d9e2c177df642cc4fe605a4a491026.jpg"
@@ -449,6 +633,17 @@
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#浏览器的事件循环"><span class="nav-number">1.</span> <span class="nav-text">浏览器的事件循环</span></a></li></ol></div>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -563,6 +758,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.2"></script>
+
+
 
   
 
